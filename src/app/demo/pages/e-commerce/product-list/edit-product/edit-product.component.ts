@@ -33,6 +33,7 @@ export class EditProductComponent {
       'offerPrice' : new FormControl(this.data?.offerPrice,Validators.required),
       'status' : new FormControl(this.data?.status,Validators.required),
       'images' : new FormControl(this.data?.images,Validators.required),
+      'date' : new FormControl(this.data?.date,Validators.required),
     })
 }
 submitForm(){

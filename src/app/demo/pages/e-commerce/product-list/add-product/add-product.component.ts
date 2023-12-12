@@ -4,6 +4,7 @@ import { SharedModule } from 'src/app/demo/shared/shared.module';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-add-product',
   standalone: true,
@@ -39,6 +40,7 @@ export class AddProductComponent {
       'offerPrice' : new FormControl('',Validators.required),
       'status' : new FormControl('',Validators.required),
       'images' : new FormControl('',Validators.required),
+      'date': new FormControl('', Validators.required)
     })
   }
 }
