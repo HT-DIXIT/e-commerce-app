@@ -91,6 +91,33 @@ export class ProductListComponent implements AfterViewInit {
     this.getProductData()
 }
 
+stock(value: string) {
+  if (localStorage.getItem('productData')) {
+    let data: any = localStorage.getItem('productData');
+    this.productData = JSON.parse(data);
+    this.dataSource = this.productData.filter((x: any) => x.status === value);
+    console.log(this.dataSource)
+  }
+}
+
+reset() {
+  if (localStorage.getItem('productData')) {
+    let data: any = localStorage.getItem('productData');
+    this.productData = JSON.parse(data);
+    this.dataSource = new MatTableDataSource<Product>(this.productData);
+  }
+}
+
+outStock(value: string) {
+  if (localStorage.getItem('productData')) {
+    let data: any = localStorage.getItem('productData');
+    this.productData = JSON.parse(data);
+    this.dataSource = this.productData.filter((x: any) => x.status === value);
+    console.log(this.dataSource)
+  }
+
+}
+
 EditData(id:number){
   if(id !== undefined){
     const dialogRef = this.dialog.open(EditProductComponent, {

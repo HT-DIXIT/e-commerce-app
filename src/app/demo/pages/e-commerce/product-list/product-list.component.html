@@ -5,6 +5,11 @@
                 <button mat-flat-button color="primary" (click)="addProduct()">Add Product</button>
             </ng-template>
             <div class="mat-elevation-z8 table-responsive">
+                <div class="filter-button">
+                    <button mat-flat-button color="primary" (click)="stock('stock')" class="m-r-10">Stock</button>
+                    <button mat-flat-button color="primary" (click)="reset()" class="m-r-10">Reset</button>
+                    <button mat-flat-button color="primary" (click)="outStock('out-stock')">out-of-stock</button>
+                </div>
                 <div class="search">
                     <mat-form-field class="w-100" appearance="outline">
                         <mat-label>Filter</mat-label>

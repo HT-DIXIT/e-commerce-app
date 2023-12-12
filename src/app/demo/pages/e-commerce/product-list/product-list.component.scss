@@ -14,3 +14,12 @@
     overflow-x: auto;
   }
 
+  .filter-button {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
