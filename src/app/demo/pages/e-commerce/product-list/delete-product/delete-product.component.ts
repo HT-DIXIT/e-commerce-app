@@ -14,17 +14,17 @@ export class DeleteProductComponent {
   constructor(
     public dialogRef: MatDialogRef<DeleteProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    
+
   ) {
   }
   ngOnInit(): void {
   }
 
-  onDelete(){
+  onDelete() {
     this.dialogRef.close(this.data);
   }
 
-  onNo(){
+  onNo() {
     this.dialogRef.close();
   }
 }

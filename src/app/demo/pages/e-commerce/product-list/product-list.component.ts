@@ -36,7 +36,7 @@ export class ProductListComponent implements AfterViewInit {
   productData: Product[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
-  displayedColumns: string[] = ['position', 'name', 'categories', 'qty', 'price', 'status', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'categories', 'qty', 'price', 'status', 'date', 'actions'];
 
   // constructor
   constructor(public dialog: MatDialog,) { }
@@ -146,7 +146,8 @@ updateData(data:any){
         price: data?.price,
         offerPrice: data?.offerPrice,
         status: data?.status,
-        images: data?.images
+        images: data?.images,
+        date: data?.date
       };
     }
     return user; // Return unchanged users
@@ -163,7 +164,7 @@ updateData(data:any){
         data.productName.toLowerCase().includes(searchText) ||
         data.details.toLowerCase().includes(searchText) || 
         data.status.toLowerCase().includes(searchText)  ||
-        data.category.toLowerCase().includes(searchText)
+        data.category.toLowerCase().includes(searchText) 
       );
     };
   }

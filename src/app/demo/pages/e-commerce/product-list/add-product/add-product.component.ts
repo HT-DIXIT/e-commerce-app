@@ -15,8 +15,17 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AddProductComponent {
   productForm: any;
   selected: any;
-  statusSelected: any
+  statusSelected: any;
+  showInput: boolean = false;
+  formFields: any[] = []; // Array to store form field data
   
+  toggleInput() {
+    this.showInput = !this.showInput;
+  }
+
+  addFormField() {
+    this.formFields.push({}); // Add an empty object to the array
+  }
 
   constructor(
     public dialogRef: MatDialogRef<AddProductComponent>,
@@ -40,7 +49,9 @@ export class AddProductComponent {
       'offerPrice' : new FormControl('',Validators.required),
       'status' : new FormControl('',Validators.required),
       'images' : new FormControl('',Validators.required),
-      'date': new FormControl('', Validators.required)
+      'date': new FormControl('', Validators.required),
+      'content': new FormControl('', Validators.required)
     })
   }
+ 
 }

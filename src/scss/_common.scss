@@ -92,6 +92,14 @@ ul {
 
 .w-100 {
   width: 100% !important;
+
+  &.show {
+    display: block !important;
+  }
+}
+
+.hide {
+  display: none !important;
 }
 
 .text-muted {

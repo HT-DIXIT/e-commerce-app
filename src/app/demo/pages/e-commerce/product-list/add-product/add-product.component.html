@@ -33,7 +33,6 @@
     <mat-form-field appearance="outline" class="w-100">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="date">
-            <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -51,8 +50,23 @@
             <mat-option value="prod-2.png">prod-2.png</mat-option>
         </mat-select>
     </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="showInput" (change)="toggleInput()">Show Input</mat-checkbox>
+    <div class="w-100 hide" [ngClass]="{'show': showInput}">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>offer Price</mat-label>
+            <input matInput placeholder="subscription content" formControlName="content">
+        </mat-form-field>
+        <div *ngFor="let field of formFields">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Additional Field</mat-label>
+                <input matInput placeholder="Additional Field">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="addFormField()">Add Form Field</button>
+    </div>
     <div class="text-center">
         <button mat-raised-button color="primary">Submit</button>
     </div>
-    
+
 </form>
