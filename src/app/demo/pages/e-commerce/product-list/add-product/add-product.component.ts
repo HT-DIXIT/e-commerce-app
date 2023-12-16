@@ -1,9 +1,13 @@
+// angular import
 import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from 'src/app/demo/shared/shared.module';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
+// project import
+import { SharedModule } from 'src/app/demo/shared/shared.module';
+
+// angular material import
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-product',
@@ -16,42 +20,51 @@ export class AddProductComponent {
   productForm: any;
   selected: any;
   statusSelected: any;
-  showInput: boolean = false;
-  formFields: any[] = []; // Array to store form field data
-  
-  toggleInput() {
-    this.showInput = !this.showInput;
-  }
 
-  addFormField() {
-    this.formFields.push({}); // Add an empty object to the array
-  }
+  // more addition functionality next work
+  // showInput: boolean = false;
+  // formFields: any[] = []; // Array to store form field data
 
+  // toggleInput() {
+  //   this.showInput = !this.showInput;
+  //   const contentControl = this.productForm.get('content');
+  //   contentControl?.setValidators(this.showInput ? Validators.required : null);
+  //   contentControl?.updateValueAndValidity();
+  // }
+
+  // addFormField() {
+  //   this.formFields.push({}); // Add an empty object to the array
+
+  // }
+
+  // constructor
   constructor(
     public dialogRef: MatDialogRef<AddProductComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
-  
-  submitForm(){
-    if(this.productForm.valid){
+
+  // reactive form submit with data
+  submitForm() {
+    if (this.productForm.valid) {
       this.dialogRef.close(this.productForm.value);
     }
   }
 
+  // life cycle hook
   ngOnInit(): void {
     this.productForm = new FormGroup({
-      'id' : new FormControl('',Validators.required),
-      'quantity' : new FormControl('',Validators.required),
-      'productName' : new FormControl('',Validators.required),
-      'details' : new FormControl('',Validators.required),
-      'category' : new FormControl('',Validators.required),
-      'price' : new FormControl('',Validators.required),
-      'offerPrice' : new FormControl('',Validators.required),
-      'status' : new FormControl('',Validators.required),
-      'images' : new FormControl('',Validators.required),
-      'date': new FormControl('', Validators.required),
-      'content': new FormControl('', Validators.required)
-    })
+      id: new FormControl('', Validators.required),
+      quantity: new FormControl('', Validators.required),
+      productName: new FormControl('', Validators.required),
+      details: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
+      offerPrice: new FormControl('', Validators.required),
+      status: new FormControl('', Validators.required),
+      images: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required)
+      // 'content': new FormControl('', this.showInput ? Validators.required : null),
+      // 'addContent':  new FormControl('', this.showInput ? Validators.required : null)
+    });
   }
- 
 }
