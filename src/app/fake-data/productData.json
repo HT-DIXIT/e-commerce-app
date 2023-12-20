@@ -1,0 +1,24 @@
+[
+    {
+        "id": "1",
+        "productName": "Hp Laptop",
+        "quantity": "12",
+        "details": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, quas vero eos accusamus deleniti quaerat facilis doloribus in pariatur nulla esse sint optio error tenetur suscipit reprehenderit dignissimos accusantium minus praesentium aspernatur, distinctio consequuntur. Harum, dolorem!",
+        "category": "Electronic",
+        "price": 450,
+        "offerPrice": 250,
+        "status": "stock",
+        "images": "prod-1.png"
+    },
+    {
+        "id": "2",
+        "productName": "Samsung Tv",
+        "quantity": "15",
+        "details": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, quas vero eos accusamus deleniti quaerat facilis doloribus in pariatur nulla esse sint optio error tenetur suscipit reprehenderit dignissimos accusantium minus praesentium aspernatur, distinctio consequuntur. Harum, dolorem!",
+        "category": "Electronic",
+        "price": 1000,
+        "offerPrice": 750,
+        "status": "stock",
+        "images": "prod-7.png"
+    }
+]

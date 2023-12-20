@@ -23,3 +23,9 @@
   border-radius: 8px;
   margin-bottom: 15px;
 }
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

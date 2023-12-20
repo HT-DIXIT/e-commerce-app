@@ -1,8 +1,13 @@
-import { Component, Inject } from '@angular/core';
+// angular import
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from 'src/app/demo/shared/shared.module';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+// project import
+import { SharedModule } from 'src/app/demo/shared/shared.module';
+
+// angular material import
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-product',
@@ -11,7 +16,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.scss']
 })
-export class EditProductComponent {
+export class EditProductComponent implements OnInit {
+
+  // public props
   selected: any;
   EditProductForm!: FormGroup;
   statusSelected: any;
@@ -30,10 +37,13 @@ export class EditProductComponent {
   //   this.formFields.push({}); // Add an empty object to the array
   // }
 
+  // constructor
   constructor(
     public dialogRef: MatDialogRef<EditProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
+
+  // life cycle hook
   ngOnInit(): void {
     // this.showInput = !!this.data?.content;
     this.EditProductForm = new FormGroup({
@@ -50,6 +60,8 @@ export class EditProductComponent {
       // 'content': new FormControl(this.data?.content, this.showInput ? Validators.required : null)
     });
   }
+
+  // public method
   submitForm() {
     if (this.EditProductForm.valid) {
       this.dialogRef.close(this.EditProductForm.value);

@@ -1,5 +1,5 @@
 // angular import
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -16,10 +16,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent {
-  productForm: any;
-  selected: any;
-  statusSelected: any;
+export class AddProductComponent implements OnInit {
+
+  // public props
+  productForm!: FormGroup;
+  selected!: string;
+  statusSelected!: string;
 
   // more addition functionality next work
   // showInput: boolean = false;

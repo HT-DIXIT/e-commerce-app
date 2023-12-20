@@ -1,5 +1,5 @@
 // angular import
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // project import
@@ -8,13 +8,13 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { ProductViewComponent } from './product-view/product-view.component';
+import ProductData from 'src/app/fake-data/productData.json';
 
 // angular material import
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { DialogRef } from '@angular/cdk/dialog';
 
 interface Product {
   id: number;
@@ -35,7 +35,7 @@ interface Product {
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements AfterViewInit {
+export class ProductListComponent implements AfterViewInit, OnInit {
   // public props
   searchText: any;
   dataSource: any;
@@ -45,10 +45,12 @@ export class ProductListComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'categories', 'qty', 'price', 'status', 'date', 'actions'];
 
   // constructor
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
   // life cycle event
   ngOnInit() {
+    let data = ProductData;
+    localStorage.setItem('productData', JSON.stringify(data));
     this.getProductData();
   }
 
@@ -72,6 +74,8 @@ export class ProductListComponent implements AfterViewInit {
       this.dataSource = new MatTableDataSource<Product>(this.productData);
     }
   }
+
+
 
   // Here add new product data
   addProduct() {

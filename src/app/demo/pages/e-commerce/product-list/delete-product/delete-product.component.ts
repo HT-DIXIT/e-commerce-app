@@ -1,6 +1,11 @@
+// angular import
 import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+// project import
 import { SharedModule } from 'src/app/demo/shared/shared.module';
+
+// angular material import 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -11,12 +16,14 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./delete-product.component.scss']
 })
 export class DeleteProductComponent {
+
+  // constructor
   constructor(
     public dialogRef: MatDialogRef<DeleteProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
-  ngOnInit(): void {}
 
+  // public method
   onDelete() {
     this.dialogRef.close(this.data);
   }
