@@ -50,12 +50,13 @@ export class EditProductComponent implements OnInit {
       id: new FormControl(this.data?.id, Validators.required),
       quantity: new FormControl(this.data?.quantity, Validators.required),
       productName: new FormControl(this.data?.productName, Validators.required),
-      details: new FormControl(this.data?.details, Validators.required),
+      description: new FormControl(this.data?.description, Validators.required),
+      about: new FormControl(this.data?.about, Validators.required),
       category: new FormControl(this.data?.category, Validators.required),
       price: new FormControl(this.data?.price, Validators.required),
       offerPrice: new FormControl(this.data?.offerPrice, Validators.required),
       status: new FormControl(this.data?.status, Validators.required),
-      images: new FormControl(this.data?.images, Validators.required),
+      images: new FormControl(this.data?.images),
       date: new FormControl(this.data?.date, Validators.required)
       // 'content': new FormControl(this.data?.content, this.showInput ? Validators.required : null)
     });

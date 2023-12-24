@@ -15,6 +15,10 @@
   overflow-x: auto;
 }
 
+table {
+  width: 100%;
+}
+
 .filter-button {
   padding: 10px;
   display: flex;
@@ -24,8 +28,24 @@
   margin-bottom: 15px;
 }
 
-.text-truncate {
+.text-truncates {
   overflow: hidden;
   text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+
+.product-status {
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
   white-space: nowrap;
+
+  &.in {
+    background: var(--success-50);
+    color: var(--success-500);
+  }
+  &.out {
+    background: var(--warn-50);
+    color: var(--warn-500);
+  }
 }

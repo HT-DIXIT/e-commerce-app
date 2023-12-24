@@ -20,12 +20,14 @@ interface Product {
   id: number;
   productName: string;
   quantity: number;
-  details: string;
+  description: string;
+  about: string;
   category: string;
   price: string;
   offerPrice: string;
   status: string;
   images: string;
+  date: string;
 }
 
 @Component({
@@ -74,8 +76,6 @@ export class ProductListComponent implements AfterViewInit, OnInit {
       this.dataSource = new MatTableDataSource<Product>(this.productData);
     }
   }
-
-
 
   // Here add new product data
   addProduct() {
@@ -130,13 +130,9 @@ export class ProductListComponent implements AfterViewInit, OnInit {
 
   // product View Data
   ProductView(product: any) {
-    const ProductViewData = this.dialog.open(ProductViewComponent, {
-      width: '550px',
+    this.dialog.open(ProductViewComponent, {
+      width: '850px',
       data: product
-    });
-
-    ProductViewData.afterClosed().subscribe((result) => {
-      console.log('data', result);
     });
   }
 
@@ -165,7 +161,8 @@ export class ProductListComponent implements AfterViewInit, OnInit {
           id: data?.id,
           quantity: data?.quantity,
           productName: data?.productName,
-          details: data?.details,
+          description: data?.description,
+          about: data?.about,
           category: data?.category,
           price: data?.price,
           offerPrice: data?.offerPrice,
@@ -188,7 +185,7 @@ export class ProductListComponent implements AfterViewInit, OnInit {
       const searchText = filter.toLowerCase();
       return (
         data.productName.toLowerCase().includes(searchText) ||
-        data.details.toLowerCase().includes(searchText) ||
+        data.description.toLowerCase().includes(searchText) ||
         data.status.toLowerCase().includes(searchText) ||
         data.category.toLowerCase().includes(searchText)
       );
