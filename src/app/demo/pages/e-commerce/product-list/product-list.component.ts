@@ -47,7 +47,7 @@ export class ProductListComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['position', 'name', 'categories', 'qty', 'price', 'status', 'date', 'actions'];
 
   // constructor
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {}
 
   // life cycle event
   ngOnInit() {
@@ -196,7 +196,7 @@ export class ProductListComponent implements AfterViewInit, OnInit {
   DeleteData(id: number) {
     if (id !== undefined) {
       const dialogRef = this.dialog.open(DeleteProductComponent, {
-        width: '250px',
+        width: '450px',
         data: id
       });
 

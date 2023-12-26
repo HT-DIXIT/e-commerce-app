@@ -46,28 +46,27 @@
 
           <ng-container matColumnDef="categories">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> CATEGORIES </th>
-            <td mat-cell *matCellDef="let element"> {{ element.category }} </td>
+            <td mat-cell *matCellDef="let element" class="text-center"> {{ element.category }} </td>
           </ng-container>
           <ng-container matColumnDef="qty">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
-            <td mat-cell *matCellDef="let element"> {{ element.quantity }} </td>
+            <td mat-cell *matCellDef="let element" class="text-center"> {{ element.quantity }} </td>
           </ng-container>
           <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> PRICE </th>
-            <td mat-cell *matCellDef="let element"> ${{ element.price }} </td>
+            <td mat-cell *matCellDef="let element" class="text-center"> ${{ element.price }} </td>
           </ng-container>
           <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </th>
-            <td mat-cell *matCellDef="let element">
+            <td mat-cell *matCellDef="let element" class="text-center">
               <div class="product-status" [ngClass]="element.status === 'stock' ? 'in' : 'out'">
                 {{ element.status }}
               </div>
-              
             </td>
           </ng-container>
           <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> DATE </th>
-            <td mat-cell *matCellDef="let element">
+            <td mat-cell *matCellDef="let element" class="text-center">
               {{ element.date | date: 'dd-MM-yyyy' }}
             </td>
           </ng-container>
@@ -96,7 +95,8 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons aria-label="Select page of periodic elements"> </mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+        </mat-paginator>
       </div>
     </app-card>
   </div>

@@ -1,5 +1,5 @@
 // angular import
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // project import
@@ -15,8 +15,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './product-view.component.html',
   styleUrls: ['./product-view.component.scss']
 })
-export class ProductViewComponent implements OnInit {
+export class ProductViewComponent {
 
+// public props
   productViewData = this.data;
 
   // constructor
@@ -25,6 +26,4 @@ export class ProductViewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  ngOnInit() {
-  }
 }

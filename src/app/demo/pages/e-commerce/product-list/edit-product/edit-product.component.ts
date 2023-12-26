@@ -17,7 +17,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./edit-product.component.scss']
 })
 export class EditProductComponent implements OnInit {
-
   // public props
   selected: any;
   EditProductForm!: FormGroup;

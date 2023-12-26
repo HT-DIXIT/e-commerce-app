@@ -17,7 +17,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent implements OnInit {
-
   // public props
   productForm!: FormGroup;
   selected!: string;
